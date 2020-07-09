@@ -1,3 +1,6 @@
+*/*tfvars
 */provider.tf
+*/.terraform*
+*/*.tfstate*
 .terraform*
 .tfstate*
