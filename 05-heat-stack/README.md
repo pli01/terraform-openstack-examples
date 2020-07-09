@@ -1,5 +1,7 @@
 # How to
 
+![infra heat stack instance with volume](../img/05-heat-stack.png "infra heat stack instance with volume")
+
 - This sample create with terraform the following architecture:
 - Create router/network/volume and heat stack resources
 - heat stack create an instance with root volume attached, and execute user_data at boot time.
