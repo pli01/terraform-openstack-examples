@@ -10,13 +10,14 @@
 ### Create stack
 
 ```
+terraform plan
 terraform apply
 ```
 
 This script will create:
 -   1 router
 -   1 network
--   1 volume from image
+-   1 root volume from image
 -   1 stack with 1 instance with attached volume, and user_data with waitcondition
 
 ### delete stack
