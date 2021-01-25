@@ -13,6 +13,7 @@ resource "openstack_orchestration_stack_v1" "stack_1" {
      worker_image            = var.image
      key_name                = var.key_name
      no_proxy                = var.no_proxy
+     ssh_access_cidr         = var.ssh_access_cidr
   }
   # override heat parameters with param files
   environment_opts = {

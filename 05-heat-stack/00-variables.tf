@@ -17,12 +17,6 @@ variable "dns_ip" {
   default = ["8.8.8.8", "8.8.8.4"]
 }
 
-#### VM HTTP parameters ####
-variable "flavor_http" {
-  type    = string
-  default = "t2.medium"
-}
-
 variable "network_http" {
   type    = map(string)
   default = {
@@ -42,11 +36,7 @@ variable "vol_type" {
   default = "default"
 }
 
-variable "no_proxy" {
-  type    = string
-  default = "localhost"
-}
-
+#### VM HTTP parameters ####
 variable "key_name" {
   type    = string
   default = "debian"
@@ -55,4 +45,15 @@ variable "key_name" {
 variable "flavor" {
   type    = string
   default = "t1.small"
+}
+
+#### Variable used in heat and cloud-init
+variable "no_proxy" {
+  type    = string
+  default = "localhost"
+}
+
+variable "ssh_access_cidr" {
+  type    = string
+  default = "0.0.0.0/0"
 }
