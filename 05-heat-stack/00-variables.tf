@@ -5,7 +5,10 @@ variable "image" {
   type    = string
   default = "debian-latest"
 }
-
+variable "most_recent_image" {
+  default = "true"
+  # default = "false"
+}
 #### NEUTRON
 variable "external_network" {
   type    = string
@@ -18,7 +21,7 @@ variable "dns_ip" {
 }
 
 variable "network_http" {
-  type    = map(string)
+  type = map(string)
   default = {
     subnet_name = "subnet-http"
     cidr        = "192.168.1.0/24"

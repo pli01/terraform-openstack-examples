@@ -1,7 +1,7 @@
 # Get the uuid of image
 data "openstack_images_image_v2" "debian_current" {
   name        = var.image
-  most_recent = true
+  most_recent = var.most_recent_image ? true : false
 }
 
 resource "openstack_blockstorage_volume_v2" "root_volume" {

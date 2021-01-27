@@ -1,12 +1,17 @@
-TERRAFORM_BIN = ../terraform
+TF_BIN = ../terraform
+TF_APPLY_ARGS = -auto-approve
+TF_DESTROY_ARGS = -auto-approve
+export
 
 deploy: validate plan apply
 
+format:
+	${TF_BIN} fmt -check || ${TF_BIN} fmt -diff
 validate:
-	$(TERRAFORM_BIN) validate
+	${TF_BIN} validate
 plan:
-	$(TERRAFORM_BIN) plan
+	${TF_BIN} plan
 apply:
-	$(TERRAFORM_BIN) apply -auto-approve
+	${TF_BIN} apply ${TF_APPLY_ARGS}
 destroy:
-	$(TERRAFORM_BIN) destroy -target=openstack_orchestration_stack_v1.stack_1 -auto-approve
+	${TF_BIN} destroy ${TF_DESTROY_ARGS} -target=openstack_orchestration_stack_v1.stack_1
