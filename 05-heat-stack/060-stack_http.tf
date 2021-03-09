@@ -4,7 +4,8 @@ resource "openstack_orchestration_stack_v1" "stack_1" {
   name = "stack_1"
   # override heat parameters
   parameters = {
-    floatingip_network_name = var.external_network
+    floating_ip_id          = openstack_networking_floatingip_v2.worker.id
+    security_group          = openstack_networking_secgroup_v2.web_secgroup_1.id
     worker_network          = openstack_networking_network_v2.generic.id
     worker_subnet           = openstack_networking_subnet_v2.http.id
     source_volid            = openstack_blockstorage_volume_v2.root_volume.id
